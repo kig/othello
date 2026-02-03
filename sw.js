@@ -4,10 +4,10 @@ const CACHE_NAME = 'othello-pwa-v1';
 
 // Only include stable, root-relative URLs that exist in dev/preview.
 const PRECACHE_URLS = [
-  '/',
-  '/index.html',
-  '/manifest.webmanifest',
-  '/icons/cr128-app-othello.png'
+  './',
+  './index.html',
+  './manifest.webmanifest',
+  './icons/cr128-app-othello.png'
 ];
 
 self.addEventListener('install', (event) => {
@@ -35,10 +35,10 @@ self.addEventListener('fetch', (event) => {
   // For navigations: serve cached shell, update in background.
   if (req.mode === 'navigate') {
     event.respondWith(
-      caches.match('/index.html').then((cached) =>
+      caches.match('./index.html').then((cached) =>
         cached || fetch(req).then((res) => {
           const copy = res.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put('/index.html', copy));
+          caches.open(CACHE_NAME).then((cache) => cache.put('./index.html', copy));
           return res;
         })
       )
