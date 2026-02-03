@@ -271,8 +271,13 @@ export class BoardView {
 
   private handleClick(event: MouseEvent): void {
     const rect = this.canvas.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
+
+    // If canvas is CSS-scaled (PWA/mobile), map pointer coords back to internal canvas coords.
+    const scaleX = this.canvas.width / rect.width;
+    const scaleY = this.canvas.height / rect.height;
+
+    const x = (event.clientX - rect.left) * scaleX;
+    const y = (event.clientY - rect.top) * scaleY;
 
     const col = Math.floor(x / 56);
     const row = Math.floor(y / 56);

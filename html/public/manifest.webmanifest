@@ -1,0 +1,32 @@
+{
+  "name": "Othello",
+  "short_name": "Othello",
+  "description": "Othello (Reversi) - HTML/TypeScript port",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#111111",
+  "theme_color": "#111111",
+  "icons": [
+    {
+      "src": "/icons/cr16-app-othello.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/cr32-app-othello.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/cr64-app-othello.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/cr128-app-othello.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ]
+}
