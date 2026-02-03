@@ -1,0 +1,22 @@
+{
+  "name": "othello-html",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:ui": "vitest --ui",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.1",
+    "@vitest/ui": "^4.0.18",
+    "jsdom": "^28.0.0",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.8",
+    "vitest": "^4.0.18"
+  }
+}
