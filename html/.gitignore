@@ -2,3 +2,4 @@ node_modules
 dist
 test_results
 deploy
+.DS_Store
