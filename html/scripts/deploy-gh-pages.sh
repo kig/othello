@@ -7,8 +7,7 @@ rm -rf deploy
 mkdir deploy
 cd deploy
 
-cp -a ../.git .git
-git reset --hard
+cp -a ../../.git .git
 git checkout gh-pages
 git pull
 

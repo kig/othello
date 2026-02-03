@@ -1,7 +1,7 @@
 {
   "name": "Othello",
   "short_name": "Othello",
-  "description": "Othello (Reversi) - HTML/TypeScript port",
+  "description": "Othello",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
