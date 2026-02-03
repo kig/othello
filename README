@@ -1,0 +1,5 @@
+you need libqt3-headers, libqt3-compat-headers
+
+export QTDIR=/usr/share/qt3 # or wherever your qt3 headers are
+make
+./othello
