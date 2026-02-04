@@ -156,8 +156,8 @@ function createAboutDialog(): HTMLDivElement {
   content.innerHTML = `
     <div><strong>Othello v0.9</strong></div>
     <div style="margin-top: 8px;">A Qt Othello Game.</div>
-    <div style="margin-top: 8px;">Ilmari Heikkinen (irheikki@cc.hut.fi)</div>
-    <div>Jari Väisänen (jvaisan2@cc.hut.fi)</div>
+    <div style="margin-top: 8px;">Ilmari Heikkinen</div>
+    <div>Jari Väisänen</div>
   `;
 
   const button = document.createElement('button');
