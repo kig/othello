@@ -1,6 +1,6 @@
 /* Simple app-shell SW: cache core files, plus runtime cache for other GETs. */
 
-const CACHE_NAME = 'othello-pwa-1770183651861'; /* BUILD_VERSION_MARKER */
+const CACHE_NAME = 'othello-pwa-1770186691846'; /* BUILD_VERSION_MARKER */
 
 // Only include stable, root-relative URLs that exist in dev/preview.
 const PRECACHE_URLS = [
