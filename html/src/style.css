@@ -8,12 +8,18 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+  height: -webkit-fill-available;
+}
+
 body {
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100%;
+  height: -webkit-fill-available;
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
     env(safe-area-inset-left);
   background: #111;
