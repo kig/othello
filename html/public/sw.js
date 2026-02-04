@@ -7,7 +7,7 @@ const PRECACHE_URLS = [
   './',
   './index.html',
   './manifest.webmanifest',
-  './icons/cr128-app-othello.png'
+  './icons/cr128-app-othello.webp'
 ];
 
 self.addEventListener('install', (event) => {
