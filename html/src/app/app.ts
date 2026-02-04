@@ -15,12 +15,18 @@ export function createApp(root: HTMLElement): void {
 
   const gameButton = document.createElement('button');
   gameButton.textContent = 'Game';
+  gameButton.setAttribute('aria-haspopup', 'true');
+  gameButton.setAttribute('aria-expanded', 'false');
 
   const optionsButton = document.createElement('button');
   optionsButton.textContent = 'Options';
+  optionsButton.setAttribute('aria-haspopup', 'true');
+  optionsButton.setAttribute('aria-expanded', 'false');
 
   const helpButton = document.createElement('button');
   helpButton.textContent = 'Help';
+  helpButton.setAttribute('aria-haspopup', 'true');
+  helpButton.setAttribute('aria-expanded', 'false');
 
   leftGroup.append(gameButton, optionsButton, helpButton);
   menuBar.append(leftGroup, rightGroup);
@@ -29,6 +35,8 @@ export function createApp(root: HTMLElement): void {
   boardContainer.className = 'board-container';
 
   const canvas = document.createElement('canvas');
+  canvas.setAttribute('role', 'img');
+  canvas.setAttribute('aria-label', 'Othello Game Board');
   boardContainer.appendChild(canvas);
 
   const statusBar = document.createElement('div');
@@ -44,13 +52,17 @@ export function createApp(root: HTMLElement): void {
 
   const closeMenus = () => {
     document.querySelectorAll('.menu-panel').forEach((panel) => panel.remove());
-    document.querySelectorAll('.menu-group button').forEach((btn) => btn.classList.remove('active'));
+    document.querySelectorAll('.menu-group button').forEach((btn) => {
+      btn.classList.remove('active');
+      btn.setAttribute('aria-expanded', 'false');
+    });
   };
 
   const openMenu = (button: HTMLButtonElement, items: Array<HTMLElement | null>) => {
     closeMenus();
     const panel = document.createElement('div');
     panel.className = 'menu-panel';
+    panel.setAttribute('role', 'menu');
     const rect = button.getBoundingClientRect();
     panel.style.top = `${rect.bottom + window.scrollY}px`;
     panel.style.left = `${rect.left + window.scrollX}px`;
@@ -61,11 +73,13 @@ export function createApp(root: HTMLElement): void {
     });
     document.body.appendChild(panel);
     button.classList.add('active');
+    button.setAttribute('aria-expanded', 'true');
   };
 
   const createMenuItem = (label: string, action: () => void) => {
     const item = document.createElement('button');
     item.className = 'menu-item';
+    item.setAttribute('role', 'menuitem');
     item.textContent = label;
     item.addEventListener('click', () => {
       action();
@@ -77,7 +91,10 @@ export function createApp(root: HTMLElement): void {
   const createCheckboxItem = (label: string, checked: () => boolean, action: () => void) => {
     const item = document.createElement('button');
     item.className = 'menu-item';
-    item.innerHTML = `<input type="checkbox" ${checked() ? 'checked' : ''} />${label}`;
+    item.setAttribute('role', 'menuitemcheckbox');
+    const isChecked = checked();
+    item.setAttribute('aria-checked', isChecked ? 'true' : 'false');
+    item.textContent = (isChecked ? '✓ ' : '   ') + label;
     item.addEventListener('click', () => {
       action();
       closeMenus();
